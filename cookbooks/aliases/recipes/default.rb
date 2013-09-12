@@ -45,8 +45,8 @@ end
 #end
 
 
-node[:dumpdir] = "/etc/yum.repos.d/dump"
-directory node[:dumpdir] do
+#node[:dumpdir] = "/etc/yum.repos.d/dump"
+directory "/etc/yum.repos.d/dump" do
 mode 0755
 owner "root"
 group "root"

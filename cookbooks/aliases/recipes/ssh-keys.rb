@@ -2,12 +2,18 @@ group "deploy" do
     gid 123
 end
 
-#if node[:user] == "root"
-#
-#	user "root" do
-#	    group "deploy"
-#	end
-#end
+if node[:user] == "vagrant"
+
+    user "vagrant" do
+        group "deploy"
+    end
+
+    template "/home/vagrant/.bashrc" do
+        source "bashrc.erb"
+        owner "vagrant"
+    end
+
+end
 
 node[:users].each do |u|
     user u[:name] do

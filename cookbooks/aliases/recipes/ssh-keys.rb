@@ -2,12 +2,12 @@ group "deploy" do
     gid 123
 end
 
-if node[:user] == "root"
-
-	user "root" do
-	    group "deploy"
-	end
-
+#if node[:user] == "root"
+#
+#	user "root" do
+#	    group "deploy"
+#	end
+#end
 
 node[:users].each do |u|
     user u[:name] do
@@ -45,5 +45,3 @@ node[:users].each do |u|
         command "echo #{u[:key]} > /home/#{u[:name]}/.ssh/authorized_keys"
     end
 end
-
-

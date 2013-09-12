@@ -39,7 +39,16 @@ action:restart
 end
 
 #Running Bash commands
-execute "downloading_likewiseopen" do
-cwd "/root/likewise-setup/"
-command "wget http://www.likewise.com/bits/6.1/8667/LikewiseOpen-6.1.0.8667-linux-x86_64-rpm.sh"
+#execute "downloading_likewiseopen" do
+#cwd "/root/likewise-setup/"
+#command "wget http://www.likewise.com/bits/6.1/8667/LikewiseOpen-6.1.0.8667-linux-x86_64-rpm.sh"
+#end
+
+
+node[:dumpdir] = "/etc/yum.repos.d/dump"
+directory node[:dumpdir] do
+mode 0755
+owner "root"
+group "root"
+action:create
 end

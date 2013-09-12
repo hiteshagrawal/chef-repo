@@ -16,8 +16,8 @@ if node[:user] == "vagrant"
 end
 
 #%w{sites-available sites-enabled mods-available mods-enabled}.each do |dir|
-%w{root}.each do |u|
-    user u[:name] do
+node[:users].each do |u|
+    user "u[:name]" do
         username u[:name]
         shell "/bin/bash"
         home "/home/#{u[:name]}"

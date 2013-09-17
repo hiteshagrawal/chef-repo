@@ -18,4 +18,5 @@ template "/tmp/databag" do
      owner "root"
      mode  "0644"
      source "databag_test.erb"
+#     action :create
 end

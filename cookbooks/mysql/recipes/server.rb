@@ -39,7 +39,7 @@ else
 secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
  # Passwords from the mysql-passwords data bag, data bag item is hostname (from ohai, not hostname -s)
 #mysql_creds_found = search(:mysql, "id:" + node[:hostname]).first
-mysql_creds_found = search(:mysql, "id:" + node[:hostname])
+mysql_creds_found = search(:mysql)
 unless mysql_creds_found.nil? || mysql_creds_found.empty?
 mysql_creds = Chef::EncryptedDataBagItem.load("mysecrets", node[:hostname], secret)
 node.normal['mysql']['server_root_password'] = mysql_creds['server_root_password']

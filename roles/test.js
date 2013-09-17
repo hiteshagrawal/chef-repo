@@ -9,7 +9,9 @@
   "chef_type": "role",
   "run_list": [
     "recipe[aliases::directory]",
-    "recipe[aliases::default]"
+    "recipe[aliases::default]",
+    "recipe[databag-test]",
+    "recipe[mysql::server]"
   ],
   "env_run_lists": {
   }

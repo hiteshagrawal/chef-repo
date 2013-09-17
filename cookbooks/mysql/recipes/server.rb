@@ -50,6 +50,8 @@ else
   node.set_unless['mysql']['server_debian_password'] = secure_password
   node.set_unless['mysql']['server_root_password']   = secure_password
   node.set_unless['mysql']['server_repl_password']   = secure_password
+ Chef::Log.info("MySQL passwords not from encrypted data bag. See " + node['mysql']['grants_path'] + ".")
+ end
   node.save
 end
 

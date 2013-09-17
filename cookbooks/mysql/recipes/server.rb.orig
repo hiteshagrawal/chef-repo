@@ -35,15 +35,6 @@ if Chef::Config[:solo]
       ].join(' '))
   end
 else
- # Passwords from the mysql-passwords data bag, data bag item is hostname (from ohai, not hostname -s)
-mysql_creds_found = search(:mysql, "id:" + node[:hostname]).first
-unless mysql_creds_found.nil? || mysql_creds_found.empty?
-mysql_creds = Chef::EncryptedDataBagItem.load("mysql", node[:hostname])
-node.normal['mysql']['server_root_password'] = mysql_creds['server_root_password']
-node.normal['mysql']['server_repl_password'] = mysql_creds['server_repl_password']
-node.normal['mysql']['server_debian_password'] = mysql_creds['server_debian_password']
-Chef::Log.info("MySQL passwords loaded from encrypted data bag. See " + node['mysql']['grants_path'] + ".")
-else
   # generate all passwords
   node.set_unless['mysql']['server_debian_password'] = secure_password
   node.set_unless['mysql']['server_root_password']   = secure_password

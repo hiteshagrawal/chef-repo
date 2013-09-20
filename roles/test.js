@@ -10,8 +10,7 @@
   "run_list": [
     "recipe[aliases::directory]",
     "recipe[aliases::default]",
-    "recipe[databag-test]",
-    "recipe[mysql::server]"
+    "recipe[databag-test]"
   ],
   "env_run_lists": {
   }

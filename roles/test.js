@@ -10,7 +10,8 @@
   "run_list": [
     "recipe[aliases::directory]",
     "recipe[aliases::default]",
-    "recipe[databag-test]"
+    "recipe[databag-test]",
+    "recipe[databag-test::test-example-com]"
   ],
   "env_run_lists": {
   }

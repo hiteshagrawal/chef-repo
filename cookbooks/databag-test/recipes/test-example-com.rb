@@ -21,7 +21,7 @@ template "/etc/ssl/certs/mysitename.crt" do
 end
 
 template "/etc/ssl/certs/mysitename.key" do
-     variables(:ssl_cert => certificate_crt['private_key'])
+     variables(:ssl_key => certificate_crt['private_key'])
      owner "root"
      mode  "0644"
      source "certificate_key.erb"
